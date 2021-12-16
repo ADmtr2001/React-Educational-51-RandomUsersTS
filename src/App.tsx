@@ -1,14 +1,18 @@
-import React, {FC} from 'react';
-import {useDispatch} from "react-redux";
-import {fetchUsers} from "./store/action-creators/user";
+import React, {FC, Fragment} from 'react';
+import {Routes, Route, Navigate} from "react-router-dom";
+import Welcome from "./pages/Welcome/Welcome";
+import Users from "./pages/Users/Users";
 
 const App: FC = () => {
-  const dispatch = useDispatch();
-  dispatch(fetchUsers());
   return (
-    <div>
-      App
-    </div>
+    <Fragment>
+      <Routes>
+        <Route path='welcome' element={<Welcome/>}>
+          <Route path='users' element={<Users/>}/>
+        </Route>
+        <Route path='*' element={<Navigate replace to='/welcome'/>}/>
+      </Routes>
+    </Fragment>
   );
 };
 
