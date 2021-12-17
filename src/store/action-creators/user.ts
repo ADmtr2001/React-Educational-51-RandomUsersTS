@@ -22,3 +22,7 @@ export const removeUser = (id: number) => {
 export const removeAllUsers = () => {
   return {type: UserActionTypes.REMOVE_ALL_USERS}
 }
+
+export const toggleShowUsers = (isShown: boolean) => {
+  return {type: UserActionTypes.TOGGLE_SHOW_USERS, payload: isShown}
+}

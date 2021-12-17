@@ -15,6 +15,7 @@ export interface UserState {
   users: User[];
   loading: boolean;
   error: string | null;
+  showUsers: boolean;
 }
 
 export enum UserActionTypes {
@@ -23,9 +24,10 @@ export enum UserActionTypes {
   FETCH_USERS_ERROR = 'FETCH_USERS_ERROR',
   REMOVE_USER = 'REMOVE_USER',
   REMOVE_ALL_USERS = 'REMOVE_ALL_USERS',
+  TOGGLE_SHOW_USERS = 'TOGGLE_SHOW_USERS',
 }
 
-export type UserAction = FetchUsers | FetchUsersSuccess | FetchUsersError | RemoveUser | RemoveAllUsers;
+export type UserAction = FetchUsers | FetchUsersSuccess | FetchUsersError | RemoveUser | RemoveAllUsers | ToggleShowUsers;
 
 interface FetchUsers {
   type: UserActionTypes.FETCH_USERS;
@@ -48,4 +50,9 @@ interface RemoveUser {
 
 interface RemoveAllUsers {
   type: UserActionTypes.REMOVE_ALL_USERS;
+}
+
+interface ToggleShowUsers {
+  type: UserActionTypes.TOGGLE_SHOW_USERS;
+  payload: boolean;
 }

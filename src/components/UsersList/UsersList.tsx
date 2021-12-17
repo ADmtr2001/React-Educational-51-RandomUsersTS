@@ -6,9 +6,17 @@ import UserItem from "../UserItem/UserItem";
 import {useActions} from "../../hooks/useActions";
 
 const UsersList: FC = () => {
-  const {users} = useTypedSelector(state => state.user);
+  const {users, loading, error} = useTypedSelector(state => state.user);
   const {removeAllUsers} = useActions();
   console.log(users);
+
+  if (loading) {
+    return <h2>Loading...</h2>
+  }
+
+  if (error) {
+    return <h2>Error...</h2>
+  }
 
   return (
     <Wrapper>

@@ -4,6 +4,7 @@ const initialState: UserState = {
   users: [],
   loading: false,
   error: null,
+  showUsers: false,
 }
 
 export const userReducer = (state: UserState = initialState, action: UserAction): UserState => {
@@ -18,6 +19,8 @@ export const userReducer = (state: UserState = initialState, action: UserAction)
       return {...state, users: state.users.filter(user => user.id !== action.payload)};
     case UserActionTypes.REMOVE_ALL_USERS:
       return {...state, users: []};
+    case UserActionTypes.TOGGLE_SHOW_USERS:
+      return {...state, showUsers: action.payload}
     default:
       return {...state, loading: true};
   }

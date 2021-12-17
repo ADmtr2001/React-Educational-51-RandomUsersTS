@@ -1,20 +1,23 @@
-import React, {FC, Fragment, useState} from 'react';
+import React, {FC, Fragment, useEffect, useState} from 'react';
 import {Outlet} from "react-router";
 
 import {Wrapper} from "./Welcome.styles";
 import {Link} from "react-router-dom";
+import {useTypedSelector} from "../../hooks/useTypedSelector";
+import {useActions} from "../../hooks/useActions";
 
 const Welcome: FC = () => {
-  const [showUsers, setShowUsers] = useState(false);
+  const {showUsers} = useTypedSelector(state => state.user);
+  const {toggleShowUsers} = useActions();
 
   return (
     <Fragment>
       <Wrapper>
         {showUsers ?
           (
-            <Link to='/welcome' onClick={() => setShowUsers((prev) => !prev)}>Hide Users</Link>
+            <Link to='/welcome' onClick={() => toggleShowUsers(false)}>Hide Users</Link>
           ) : (
-            <Link to='users' onClick={() => setShowUsers((prev) => !prev)}>Show Users</Link>
+            <Link to='users' onClick={() => toggleShowUsers(true)}>Show Users</Link>
           )}
       </Wrapper>
       <Outlet/>
