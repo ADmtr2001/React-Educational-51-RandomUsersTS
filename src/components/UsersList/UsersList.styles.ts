@@ -5,6 +5,12 @@ export const Wrapper = styled.div`
   width: 100%;
   text-align: center;
   
+  button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  
   h2 {
     margin-top: 10px;
   }
