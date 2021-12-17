@@ -7,7 +7,7 @@ import {useActions} from "../../hooks/useActions";
 
 const UsersList: FC = () => {
   const {users, loading, error} = useTypedSelector(state => state.user);
-  const {removeAllUsers} = useActions();
+  const {removeAllUsers, fetchUsers} = useActions();
   console.log(users);
 
   if (loading) {
@@ -22,6 +22,7 @@ const UsersList: FC = () => {
     <Wrapper>
       <h2>Users</h2>
       <button type='button' onClick={removeAllUsers}>Clear List</button>
+      <button type='button' onClick={fetchUsers} style={{marginLeft: 10}}>Get New Users</button>
       <UsersWrapper>
         {users.map(user => (
           <UserItem key={user.id} user={user}/>

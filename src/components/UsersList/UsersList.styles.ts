@@ -6,7 +6,8 @@ export const Wrapper = styled.div`
   text-align: center;
   
   button {
-    padding: 5px 10px;
+    width: 100px;
+    height: 30px;
     margin-top: 5px;
     cursor: pointer;
   }
