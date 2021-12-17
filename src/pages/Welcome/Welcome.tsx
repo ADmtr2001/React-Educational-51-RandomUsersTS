@@ -12,9 +12,9 @@ const Welcome: FC = () => {
       <Wrapper>
         {showUsers ?
           (
-            <Link to='users' onClick={() => setShowUsers((prev) => !prev)}>Show Users</Link>
-          ) : (
             <Link to='/welcome' onClick={() => setShowUsers((prev) => !prev)}>Hide Users</Link>
+          ) : (
+            <Link to='users' onClick={() => setShowUsers((prev) => !prev)}>Show Users</Link>
           )}
       </Wrapper>
       <Outlet/>

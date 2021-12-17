@@ -1,16 +1,13 @@
 import React, {FC} from 'react';
 
+import {Wrapper} from "./Users.styles";
+import UsersList from "../../components/UsersList/UsersList";
+
 const Users: FC = () => {
   return (
-    <div>
-      Users
-      <br/>
-      asdf
-      <br/>
-      asdfasdf
-      <br/>
-      adwfasdf
-    </div>
+    <Wrapper>
+      <UsersList />
+    </Wrapper>
   );
 };
 

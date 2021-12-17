@@ -7,7 +7,7 @@ export const fetchUsers = () => {
   return async (dispatch: Dispatch<UserAction>) => {
     try {
       dispatch({type: UserActionTypes.FETCH_USERS});
-      const response = await axios.get<User[]>('https://random-data-api.com/api/users/random_user?size=10');
+      const response = await axios.get<User[]>('https://random-data-api.com/api/users/random_user?size=12');
       dispatch({type: UserActionTypes.FETCH_USERS_SUCCESS, payload: response.data});
     } catch(err) {
       dispatch({type: UserActionTypes.FETCH_USERS_ERROR, payload: 'Error...'});

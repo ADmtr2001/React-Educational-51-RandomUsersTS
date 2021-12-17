@@ -1,13 +1,13 @@
 export interface User {
   id: number;
-  firstName: string;
-  secondName: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  img: string;
-  adress: {
+  avatar: string;
+  address: {
     country: string;
     city: string;
-    street: string;
+    street_name: string;
   };
 }
 
